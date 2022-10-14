@@ -48,6 +48,7 @@ type Tunnel struct {
 	//internals
 	connStats   cnet.ConnCount
 	socksServer *socks5.Server
+	ConnectorID string
 }
 
 //New Tunnel from the given Config
