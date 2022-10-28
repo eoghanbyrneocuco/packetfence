@@ -94,3 +94,4 @@ useCoA=Y
 radiusDeauthUseConnector=Y
 VoIPLLDPDetect=Y
 PostMfaValidation=N
+deauthOnPrevious=N
