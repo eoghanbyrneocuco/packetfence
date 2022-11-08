@@ -12,11 +12,9 @@
         name: ssh
         state: restarted
 
-    # New file are generated at reboot
-    - name: Delete machine-id files
-      file:
-        state: absent
-        path: "{{ item }}"
+    # FIXME
+    - name: Truncate machine-id files
+      command: "truncate --size=0 {{ item }}"
       loop:
         - /etc/machine-id
         - /var/lib/dbus/machine-id
