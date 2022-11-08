@@ -1,0 +1,22 @@
+- hosts: pfservers
+  name: Sysprep PacketFence
+  become: True
+  gather_facts: True
+
+  tasks:
+    - name: Regenerate SSH keys
+      command: '/usr/sbin/dpkg-reconfigure openssh-server'
+
+    - name: Restart SSH server
+      service:
+        name: ssh
+        state: restarted
+
+    # New file are generated at reboot
+    - name: Delete machine-id files
+      file:
+        state: absent
+        path: "{{ item }}"
+      loop:
+        - /etc/machine-id
+        - /var/lib/dbus/machine-id
