@@ -21,6 +21,6 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
-    script = "${var.provisionner_dir}/shell/sysprep-packetfence.sh"
+    script = "${var.provisioner_dir}/shell/sysprep-packetfence.sh"
   }
 }
