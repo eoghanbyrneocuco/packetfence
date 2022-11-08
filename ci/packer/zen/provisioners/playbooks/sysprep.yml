@@ -12,8 +12,8 @@
         name: ssh
         state: restarted
 
-    # FIXME
-    - name: Truncate machine-id files
+    # /etc/machine-id is automatically generated on boot
+    - name: Truncate machine-id files to force regeneration
       command: "truncate --size=0 {{ item }}"
       loop:
         - /etc/machine-id
