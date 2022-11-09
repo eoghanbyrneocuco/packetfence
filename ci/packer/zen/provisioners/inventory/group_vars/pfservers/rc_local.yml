@@ -2,7 +2,6 @@
 rc_local_service_name: rc-local
 rc_local_commands:
   - |
-    dbus-uuidgen --ensure
     /usr/sbin/dpkg-reconfigure openssh-server &>/dev/null
     make -C /usr/local/pf conf/ssl/server.pem
     make -C /usr/local/pf conf/local_secret
