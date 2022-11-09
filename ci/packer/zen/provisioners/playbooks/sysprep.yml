@@ -4,13 +4,8 @@
   gather_facts: True
 
   tasks:
-    - name: Regenerate SSH keys
-      command: '/usr/sbin/dpkg-reconfigure openssh-server'
-
-    - name: Restart SSH server
-      service:
-        name: ssh
-        state: restarted
+    - name: Remove server SSH keys
+      shell: 'rm /etc/ssh/ssh_host_*'
 
     # /etc/machine-id is automatically generated on boot
     - name: Truncate machine-id files to force regeneration
