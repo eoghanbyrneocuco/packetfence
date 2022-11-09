@@ -6,6 +6,7 @@ rc_local_commands:
     make -C /usr/local/pf conf/ssl/server.pem
     make -C /usr/local/pf conf/local_secret
     make -C /usr/local/pf/raddb/certs
+    /usr/local/pf/bin/pfcmd fixpermissions
 
     echo "" > /etc/issue
     echo "Welcome to the PacketFence-ZEN." >> /etc/issue
