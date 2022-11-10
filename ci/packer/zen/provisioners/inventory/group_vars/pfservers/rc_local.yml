@@ -3,7 +3,7 @@ rc_local_service_name: rc-local
 rc_local_commands:
   - |
     if [ ! -f "/etc/ssh/ssh_host_rsa_key.pub" ]; then
-        export DEBIAN_FRONTEND=noninteractive ; export DEBCONF_NONINTERACTIVE_SEEN=true ; /usr/sbin/dpkg-reconfigure openssh-server &>/dev/null
+        export DEBIAN_FRONTEND=noninteractive ; export DEBCONF_NONINTERACTIVE_SEEN=true ; /usr/sbin/dpkg-reconfigure openssh-server 2> /dev/null
         /bin/systemctl restart ssh.service
     else
        echo "SSH keys already regenerated"
